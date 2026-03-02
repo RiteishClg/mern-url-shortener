@@ -89,117 +89,119 @@ export const UrlDetailPage = () => {
     );
   }
 
-  <div className="min-h-screen flex justify-center items-center px-4">
-    <div className="w-full max-w-2xl bg-base-300 m-10 shadow-xl rounded-2xl p-8 space-y-6">
-      <h1 className="text-3xl font-bold text-center text-primary">
-        URL Details
-      </h1>
+  return (
+    <div className="min-h-screen flex justify-center items-center px-4">
+      <div className="w-full max-w-2xl bg-base-300 m-10 shadow-xl rounded-2xl p-8 space-y-6">
+        <h1 className="text-3xl font-bold text-center text-primary">
+          URL Details
+        </h1>
 
-      <button onClick={() => navigate("/")} className="btn btn-primary">
-        Back to Home
-      </button>
-
-      <div className="space-y-4 text-lg">
-        <div>
-          <span className="font-semibold text-success">Original URL:</span>
-          <p
-            className="break-words relative after:content-['Copy'] after:absolute after:inset-0 after:flex after:items-center after:justify-center after:bg-primary after:text-white after:font-semibold after:opacity-0 hover:after:opacity-100 after:transition-all after:duration-300 p-5 bg-base-100 m-5 rounded-2xl hover:bg-base-200 border border-transparent after:rounded-2xl"
-            onClick={() => {
-              toast.success("Copied to Clipboard");
-              navigator.clipboard.writeText(url.originalUrl);
-            }}
-          >
-            {url.originalUrl}
-          </p>
-        </div>
-
-        <div>
-          <span className="font-semibold text-primary">Short Code:</span>
-          <p>{url.shortCode}</p>
-        </div>
-
-        <div>
-          <span className="font-semibold text-primary">Short URL:</span>
-          <p
-            className="break-words relative after:content-['Copy'] after:absolute after:inset-0 after:flex after:items-center after:justify-center after:bg-primary after:text-white after:font-semibold after:opacity-0 hover:after:opacity-100 after:transition-all after:duration-300 p-5 bg-base-100 m-5 rounded-2xl hover:bg-base-200 border border-transparent after:rounded-2xl"
-            onClick={() => {
-              toast.success("Copied to Clipboard");
-              navigator.clipboard.writeText(url.shortUrl);
-            }}
-          >
-            {url.shortUrl}
-          </p>
-        </div>
-
-        <div>
-          <span className="font-semibold text-primary">Protected:</span>
-          <p>{url.isProtected ? "Yes" : "No"}</p>
-        </div>
-
-        <div>
-          <span className="font-semibold text-primary">Total Clicks:</span>
-          <p>{url.clicks}</p>
-        </div>
-
-        <div>
-          <span className="font-semibold text-accent">Created At:</span>
-          <p>{new Date(url.createdAt).toLocaleString()}</p>
-        </div>
-
-        <div>
-          <span className="font-semibold text-accent">Last Updated At:</span>
-          <p>
-            {url.updatedAt
-              ? new Date(url.updatedAt).toLocaleString()
-              : "Not Updated Yet"}
-          </p>
-        </div>
-      </div>
-
-      <div className="flex justify-end gap-4 pt-6">
-        <button
-          className="btn btn-warning px-6"
-          onClick={() => navigate(`/edit/${id}`)}
-        >
-          <Pencil />
+        <button onClick={() => navigate("/")} className="btn btn-primary">
+          Back to Home
         </button>
 
-        <button
-          className="btn btn-error px-6"
-          onClick={() => setOpenConfirm(true)}
-        >
-          <Trash />
-        </button>
+        <div className="space-y-4 text-lg">
+          <div>
+            <span className="font-semibold text-success">Original URL:</span>
+            <p
+              className="break-words relative after:content-['Copy'] after:absolute after:inset-0 after:flex after:items-center after:justify-center after:bg-primary after:text-white after:font-semibold after:opacity-0 hover:after:opacity-100 after:transition-all after:duration-300 p-5 bg-base-100 m-5 rounded-2xl hover:bg-base-200 border border-transparent after:rounded-2xl"
+              onClick={() => {
+                toast.success("Copied to Clipboard");
+                navigator.clipboard.writeText(url.originalUrl);
+              }}
+            >
+              {url.originalUrl}
+            </p>
+          </div>
 
-        {openConfirm && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-            <div className="bg-base-100 p-6 rounded-2xl shadow-2xl w-80 space-y-4 animate-scale-in">
-              <h2 className="text-xl font-bold text-error">Confirm Delete</h2>
+          <div>
+            <span className="font-semibold text-primary">Short Code:</span>
+            <p>{url.shortCode}</p>
+          </div>
 
-              <p className="text-sm text-gray-500">
-                Are you sure you want to delete this URL? This action cannot be
-                undone.
-              </p>
+          <div>
+            <span className="font-semibold text-primary">Short URL:</span>
+            <p
+              className="break-words relative after:content-['Copy'] after:absolute after:inset-0 after:flex after:items-center after:justify-center after:bg-primary after:text-white after:font-semibold after:opacity-0 hover:after:opacity-100 after:transition-all after:duration-300 p-5 bg-base-100 m-5 rounded-2xl hover:bg-base-200 border border-transparent after:rounded-2xl"
+              onClick={() => {
+                toast.success("Copied to Clipboard");
+                navigator.clipboard.writeText(url.shortUrl);
+              }}
+            >
+              {url.shortUrl}
+            </p>
+          </div>
 
-              <div className="flex justify-end gap-3 pt-4">
-                <button className="btn" onClick={() => setOpenConfirm(false)}>
-                  Cancel
-                </button>
+          <div>
+            <span className="font-semibold text-primary">Protected:</span>
+            <p>{url.isProtected ? "Yes" : "No"}</p>
+          </div>
 
-                <button
-                  className="btn btn-error"
-                  onClick={() => {
-                    setOpenConfirm(false);
-                    handleDelete();
-                  }}
-                >
-                  Yes, Delete
-                </button>
+          <div>
+            <span className="font-semibold text-primary">Total Clicks:</span>
+            <p>{url.clicks}</p>
+          </div>
+
+          <div>
+            <span className="font-semibold text-accent">Created At:</span>
+            <p>{new Date(url.createdAt).toLocaleString()}</p>
+          </div>
+
+          <div>
+            <span className="font-semibold text-accent">Last Updated At:</span>
+            <p>
+              {url.updatedAt
+                ? new Date(url.updatedAt).toLocaleString()
+                : "Not Updated Yet"}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex justify-end gap-4 pt-6">
+          <button
+            className="btn btn-warning px-6"
+            onClick={() => navigate(`/edit/${id}`)}
+          >
+            <Pencil />
+          </button>
+
+          <button
+            className="btn btn-error px-6"
+            onClick={() => setOpenConfirm(true)}
+          >
+            <Trash />
+          </button>
+
+          {openConfirm && (
+            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+              <div className="bg-base-100 p-6 rounded-2xl shadow-2xl w-80 space-y-4 animate-scale-in">
+                <h2 className="text-xl font-bold text-error">Confirm Delete</h2>
+
+                <p className="text-sm text-gray-500">
+                  Are you sure you want to delete this URL? This action cannot
+                  be undone.
+                </p>
+
+                <div className="flex justify-end gap-3 pt-4">
+                  <button className="btn" onClick={() => setOpenConfirm(false)}>
+                    Cancel
+                  </button>
+
+                  <button
+                    className="btn btn-error"
+                    onClick={() => {
+                      setOpenConfirm(false);
+                      handleDelete();
+                    }}
+                  >
+                    Yes, Delete
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
-  </div>;
+  );
 };
