@@ -12,7 +12,7 @@ const port = process.env.PORT || 3001;
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://mern-url-shortener-4iy1.onrender.com",
   })
 );
 
