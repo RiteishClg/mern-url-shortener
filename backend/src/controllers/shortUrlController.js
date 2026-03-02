@@ -92,6 +92,8 @@ export const getShortUrlById = async (req, res) => {
   try {
     const data = await Url.findById(id).select("-password");
 
+    if(!data) return res.status(404).json("404 Error");
+
     console.log(data);
     return res.status(200).json({ data });
   } catch (error) {
