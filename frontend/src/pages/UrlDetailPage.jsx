@@ -71,12 +71,14 @@ export const UrlDetailPage = () => {
   }
 
   if (error) {
-    <div className="flex flex-col min-h-screen justify-center items-center text-6xl">
-      {error}{" "}
-      <button onClick={() => navigate("/")} className="btn btn-primary m-5">
-        Back to Home
-      </button>
-    </div>;
+    return (
+      <div className="flex flex-col min-h-screen justify-center items-center text-6xl">
+        {error}
+        <button onClick={() => navigate("/")} className="btn btn-primary m-5">
+          Back to Home
+        </button>
+      </div>
+    );
   }
 
   if (url.isProtected && !isVerified) {

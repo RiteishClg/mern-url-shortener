@@ -78,7 +78,7 @@ export const EditPage = () => {
     </div>
   ) : error ? (
     <div className="flex flex-col min-h-screen justify-center items-center text-6xl">
-      {error}{" "}
+      {error}
       <button onClick={() => navigate("/")} className="btn btn-primary m-5">
         Back to Home
       </button>

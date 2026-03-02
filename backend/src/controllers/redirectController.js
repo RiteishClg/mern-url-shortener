@@ -15,7 +15,7 @@ export const handleShortUrlRedirect = async (req, res) => {
     }
 
     if(url.isProtected === true){
-      return res.redirect(`http://localhost:5173/protected/${url.shortCode}`)
+      return res.redirect(`https://mern-url-shortener-4iy1.onrender.com/protected/${url.shortCode}`)
     }
   } catch (error) {
     console.log(error);
