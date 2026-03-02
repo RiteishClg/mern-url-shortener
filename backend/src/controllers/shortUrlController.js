@@ -14,7 +14,7 @@ export const createShortUrl = async (req, res) => {
     try {
       new URL(originalUrl);
     } catch (error) {
-      res.status(400).json({ message: "Invalid Url" });
+      return res.status(400).json({ message: "Invalid Url" });
     }
 
     if (isProtected === true && !password) {
@@ -71,7 +71,7 @@ export const createShortUrl = async (req, res) => {
   } catch (error) {
     console.log(error);
     return res.status(500).json({
-      message: "Internal Server Error",
+      message: error,
     });
   }
 };
