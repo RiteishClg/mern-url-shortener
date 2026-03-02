@@ -11,7 +11,8 @@ const fetchUrl = async (setUrls, setLoading, setError, id) => {
     setUrls(res.data.data);
     setLoading(false);
   } catch (error) {
-    setError(error);
+    const msg = error.response?.data?.message || error.message;
+    setError(msg);
     setLoading(false);
   }
 };
