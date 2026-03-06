@@ -82,8 +82,8 @@ export const Home = () => {
           <option disabled value="">
             Filter By
           </option>
-          <option value="asc">createdAt (asc)</option>
-          <option value="desc">createdAt (desc)</option>
+          <option value="asc">oldest</option>
+          <option value="desc">newest</option>
           <option value="protected">Protected</option>
           <option value="unprotected">UnProtected</option>
         </select>
