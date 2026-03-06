@@ -23,6 +23,7 @@ Users can generate short URLs, edit them, delete them, and optionally secure the
 
 * React
 * Tailwind CSS
+* Daisy UI
 * React Router
 
 ### Backend
@@ -47,14 +48,14 @@ Users can generate short URLs, edit them, delete them, and optionally secure the
 ```
 project-root
 │
-├── client
+├── frontend
 │   ├── src
 │   │   ├── components
 │   │   ├── pages
 │   │   ├── lib
 │   │   └── App.jsx
 │
-├── server
+├── backend
 │   ├── controllers
 │   ├── models
 │   ├── routes
@@ -70,7 +71,7 @@ project-root
 ### 1 Clone the repository
 
 ```
-git clone https://github.com/yourusername/url-shortener.git
+git clone https://github.com/RiteishClg/mern-url-shortener.git
 ```
 
 ### 2 Go to the project folder
@@ -165,17 +166,6 @@ DELETE /api/shorturl/:id
 If a link is protected, the user must enter the correct password before accessing the original URL.
 
 Passwords are securely hashed using **Argon2** before storing them in the database.
-
----
-
-## 📸 Screenshots
-
-Add screenshots of your project UI here.
-
-```
-/screenshots/home.png
-/screenshots/create.png
-```
 
 ---
 
