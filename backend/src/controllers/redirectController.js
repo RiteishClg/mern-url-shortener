@@ -11,11 +11,13 @@ export const handleShortUrlRedirect = async (req, res) => {
     if (url.isProtected === false) {
       url.clicks += 1;
       await url.save();
-      return res.redirect(url.originalUrl)
+      return res.redirect(url.originalUrl);
     }
 
-    if(url.isProtected === true){
-      return res.redirect(`https://mern-url-shortener-4iy1.onrender.com/protected/${url.shortCode}`)
+    if (url.isProtected === true) {
+      return res.redirect(
+        `https://mern-url-shortener-4iy1.onrender.com/protected/${url.shortCode}`,
+      );
     }
   } catch (error) {
     console.log(error);
@@ -29,6 +31,7 @@ export const verifyPasswordAndRedirect = async (req, res) => {
   try {
     const { shortCode } = req.params;
     const { password } = req.body;
+    const { isDetails } = req.body || false;
 
     const url = await Url.findOne({ shortCode }).select("+password");
 
@@ -48,11 +51,13 @@ export const verifyPasswordAndRedirect = async (req, res) => {
         message: "Invalid Password!",
       });
 
-    url.clicks += 1;
-    url.save();
-
+    if (!isDetails) {
+      url.clicks += 1;
+      url.save();
+    }
+    
     return res.status(200).json({
-      success:true,
+      success: true,
       originalUrl: url.originalUrl,
     });
   } catch (error) {

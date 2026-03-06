@@ -32,7 +32,7 @@ export const UrlDetailPage = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await api.post(`/r/${url.shortCode}`, { password });
+      const res = await api.post(`/r/${url.shortCode}`, { password,isDetails:true });
       if (res.data.success) {
         setIsVerified(true);
       }
